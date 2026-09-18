@@ -15,19 +15,6 @@ def predict_result(area, bedrooms, floors):
         "Floors" : [floors]
     })
 
-    prediction = model.predict(input_data)[0]
-    probability = model.predict_proba(input_data)[0]
-
-    if prediction == 1:
-        result = "PASS"
-        confidence = probability[1] * 100
-    else:
-        result = "FAIL"
-        confidence = probability[0] * 100
-
-    return f"Student Result: {result}\nProbability: {confidence:.2f}%"
-
-
 demo = gr.Interface(
     fn=predict_result,
 
